@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Airbyte on devseunggwan</title><link>https://devseunggwan.github.io/docs/tech/airbyte/</link><description>Recent content in Airbyte on devseunggwan</description><generator>Hugo</generator><language>ko-kr</language><atom:link href="https://devseunggwan.github.io/docs/tech/airbyte/index.xml" rel="self" type="application/rss+xml"/><item><title>Installation</title><link>https://devseunggwan.github.io/docs/tech/airbyte/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://devseunggwan.github.io/docs/tech/airbyte/installation/</guid><description>&lt;h1 id="airbyte-설치-방법">
+ Airbyte 설치 방법
+ &lt;a class="anchor" href="#airbyte-%ec%84%a4%ec%b9%98-%eb%b0%a9%eb%b2%95">#&lt;/a>
+&lt;/h1>
+&lt;blockquote>
+&lt;p>해당 문서에서는 docker-compose를 사용하여 airbyte를 설치하는 방법에 대해서 설명합니다.&lt;/p>&lt;/blockquote>
+&lt;h3 id="선행조건">
+ 선행조건
+ &lt;a class="anchor" href="#%ec%84%a0%ed%96%89%ec%a1%b0%ea%b1%b4">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>docker 및 docker-compose 설치&lt;/li>
+&lt;li>git 설치(&lt;code>sudo apt-get install git&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="airbyte-다운로드">
+ Airbyte 다운로드
+ &lt;a class="anchor" href="#airbyte-%eb%8b%a4%ec%9a%b4%eb%a1%9c%eb%93%9c">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git clone https://github.com/airbytehq/airbyte.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="스크립트-실행">
+ 스크립트 실행
+ &lt;a class="anchor" href="#%ec%8a%a4%ed%81%ac%eb%a6%bd%ed%8a%b8-%ec%8b%a4%ed%96%89">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Airbyte에서는 설치 및 배포 스크립트를 제공합니다.&lt;/li>
+&lt;li>docker-compose 및 .env (Airbyte 설정 파일) 을 다운로드 합니다.&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>options:
+ -d --download Only download files - don&amp;#39;t run docker compose
+ -r --refresh DELETE existing assets and re-download new ones
+ -h --help Print this Help.
+ -x --debug Verbose mode.
+ -b --background Run docker compose up in detached mode.
+&lt;/code>&lt;/pre>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd airbyte
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./run-ab-platform.sh -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="airbyte-환경-설정">
+ Airbyte 환경 설정
+ &lt;a class="anchor" href="#airbyte-%ed%99%98%ea%b2%bd-%ec%84%a4%ec%a0%95">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>docker-compose 실행 이전, 운영하려는 환경에 대한 설정을 진행합니다.
+&lt;ul>
+&lt;li>Core, Secrets(Vault, GCP Secret store, AWS KMS), Database, Airbyte Service, Jobs, Connection, Logging, Monitoring, Worker, Launcher, Data Retention, docker, k8s 옵션 등 다양하게 존재하기 때문에 Reference을 보면서 설정하는 것이 좋습니다.&lt;/li>
+&lt;li>
+ &lt;a href="https://docs.airbyte.com/operator-guides/configuring-airbyte">https://docs.airbyte.com/operator-guides/configuring-airbyte&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="docker-compose-실행">
+ docker-compose 실행
+ &lt;a class="anchor" href="#docker-compose-%ec%8b%a4%ed%96%89">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker compose up -d &lt;span style="color:#f92672">(&lt;/span>./run-ab-platform.sh -b&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="airbyte-접속">
+ Airbyte 접속
+ &lt;a class="anchor" href="#airbyte-%ec%a0%91%ec%86%8d">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>http://localhost:8000/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="reference">
+ Reference
+ &lt;a class="anchor" href="#reference">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+ &lt;a href="https://docs.airbyte.com/operator-guides/configuring-airbyte">https://docs.airbyte.com/operator-guides/configuring-airbyte&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Airbyte를 사용하여 MySQL to Snowflake 연결 시 고려 사항</title><link>https://devseunggwan.github.io/docs/tech/airbyte/mysql-to-snowflake/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://devseunggwan.github.io/docs/tech/airbyte/mysql-to-snowflake/</guid><description>&lt;h1 id="airbyte를-사용하여-mysql-to-snowflake-연결-시-고려-사항">
+ Airbyte를 사용하여 MySQL to Snowflake 연결 시 고려 사항
+ &lt;a class="anchor" href="#airbyte%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%ec%97%ac-mysql-to-snowflake-%ec%97%b0%ea%b2%b0-%ec%8b%9c-%ea%b3%a0%eb%a0%a4-%ec%82%ac%ed%95%ad">#&lt;/a>
+&lt;/h1>
+&lt;p>
+ &lt;img src="image.png" alt="image" />&lt;/p>
+&lt;h2 id="개요">
+ 개요
+ &lt;a class="anchor" href="#%ea%b0%9c%ec%9a%94">#&lt;/a>
+&lt;/h2>
+&lt;p>EC2 내부에 docker-compose를 사용하여 Airbyte를 생성하고, Source는 AWS RDS 위에 운영되는 MySQL, Destination은 Snowflake로 각각 커넥터 설정을 하였습니다. 환경을 구성 후 CDC를 진행하며 겪었던 상황과 해결 방법을 작성하였습니다.&lt;/p>
+&lt;hr>
+&lt;h2 id="1-mysql에서-1억건-이상의-테이블에-대한-초기-마이그래이션-시-리소스-고려">
+ 1. MySQL에서 1억건 이상의 테이블에 대한 초기 마이그래이션 시 리소스 고려
+ &lt;a class="anchor" href="#1-mysql%ec%97%90%ec%84%9c-1%ec%96%b5%ea%b1%b4-%ec%9d%b4%ec%83%81%ec%9d%98-%ed%85%8c%ec%9d%b4%eb%b8%94%ec%97%90-%eb%8c%80%ed%95%9c-%ec%b4%88%ea%b8%b0-%eb%a7%88%ec%9d%b4%ea%b7%b8%eb%9e%98%ec%9d%b4%ec%85%98-%ec%8b%9c-%eb%a6%ac%ec%86%8c%ec%8a%a4-%ea%b3%a0%eb%a0%a4">#&lt;/a>
+&lt;/h2>
+&lt;p>Airbyte는 CDC 이전 초기 연결 시 테이블에 대해 Source에서 Destination으로 마이그래이션을 진행합니다. 마이그래이션 시 RDS 리소스도 중요하지만 EC2 리소스를 더 많이 사용합니다. RDS는 Task 당 커넥션을 하나만 사용하지만, EC2는 돌아가고 있는 모든 Task들을 관리해야 하기 때문입니다.&lt;/p></description></item><item><title>Airbyte 운용 시 디스크 용량이 많이 찼을 때 확인해볼 수 있는 것들</title><link>https://devseunggwan.github.io/docs/tech/airbyte/disk-issue/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://devseunggwan.github.io/docs/tech/airbyte/disk-issue/</guid><description>&lt;h1 id="airbyte-운용-시-디스크-용량이-많이-찼을-때-확인해볼-수-있는-것들">
+ Airbyte 운용 시 디스크 용량이 많이 찼을 때 확인해볼 수 있는 것들
+ &lt;a class="anchor" href="#airbyte-%ec%9a%b4%ec%9a%a9-%ec%8b%9c-%eb%94%94%ec%8a%a4%ed%81%ac-%ec%9a%a9%eb%9f%89%ec%9d%b4-%eb%a7%8e%ec%9d%b4-%ec%b0%bc%ec%9d%84-%eb%95%8c-%ed%99%95%ec%9d%b8%ed%95%b4%eb%b3%bc-%ec%88%98-%ec%9e%88%eb%8a%94-%ea%b2%83%eb%93%a4">#&lt;/a>
+&lt;/h1>
+&lt;p>
+ &lt;img src="https://upload.cafenono.com/image/slashpagePost/20241110/222409_PEKV2oTgrEwYaBqdDl?q=80%5c&amp;amp;s=1280x180%5c&amp;amp;t=outside%5c&amp;amp;f=webp" alt="images" />&lt;/p>
+&lt;h2 id="개요">
+ &lt;strong>개요&lt;/strong>
+ &lt;a class="anchor" href="#%ea%b0%9c%ec%9a%94">#&lt;/a>
+&lt;/h2>
+&lt;p>Airbyte를 EC2에서 운영하다보면 어느 시점에 할당한 디스크 용량이 부족한 경우가 발생할 때가 있습니다. 해당 이슈를 탐지하지 못하는 경우에 디스크 용량이 꽉차게 되어 Airbyte가 동작하지 않는 상황이 발생할 수 있습니다. 이 경우 &lt;code>CDC(Change Data Capture)&lt;/code>가 정지되기 때문에 미리 대응하는 것이 중요합니다.&lt;/p>
+&lt;hr>
+&lt;h2 id="airbyte-운용-시-디스크-용량을-많이-차지하는-요소-확인">
+ &lt;strong>Airbyte 운용 시 디스크 용량을 많이 차지하는 요소 확인&lt;/strong>
+ &lt;a class="anchor" href="#airbyte-%ec%9a%b4%ec%9a%a9-%ec%8b%9c-%eb%94%94%ec%8a%a4%ed%81%ac-%ec%9a%a9%eb%9f%89%ec%9d%84-%eb%a7%8e%ec%9d%b4-%ec%b0%a8%ec%a7%80%ed%95%98%eb%8a%94-%ec%9a%94%ec%86%8c-%ed%99%95%ec%9d%b8">#&lt;/a>
+&lt;/h2>
+&lt;p>Airbyte는 &lt;code>Source&lt;/code>와 &lt;code>Destination&lt;/code>을 연결하는 커넥터를 설정 후 사용하는 방식입니다. 각각은 도커 컨테이너로 구성되어 있고 커넥터의 업데이트 시에는 컨테이너 이미지를 다운로드 받아 사용합니다. 사용자가 설정한 시간에 각 단위 별로 커넥터가 동작하는 것을 Task라 하는데, 동작하는 위치마다 로그가 발생하게 됩니다.&lt;/p></description></item></channel></rss>
