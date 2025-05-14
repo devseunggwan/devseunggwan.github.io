@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on 데브승관</title><link>https://devseunggwan.github.io/docs/tech/git/</link><description>Recent content in Git on 데브승관</description><generator>Hugo</generator><language>ko-kr</language><atom:link href="https://devseunggwan.github.io/docs/tech/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Gitleaks를 사용한 Git 비밀 유출 검사, 사용법</title><link>https://devseunggwan.github.io/docs/tech/git/gitleaks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://devseunggwan.github.io/docs/tech/git/gitleaks/</guid><description>&lt;h1 id="gitleaks를-사용한-git-비밀-유출-검사-사용법">
- Gitleaks를 사용한 git 비밀 유출 검사, 사용법
- &lt;a class="anchor" href="#gitleaks%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%9c-git-%eb%b9%84%eb%b0%80-%ec%9c%a0%ec%b6%9c-%ea%b2%80%ec%82%ac-%ec%82%ac%ec%9a%a9%eb%b2%95">#&lt;/a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on 데브승관</title><link>https://devseunggwan.github.io/docs/tech/git/</link><description>Recent content in Git on 데브승관</description><generator>Hugo</generator><language>ko-kr</language><atom:link href="https://devseunggwan.github.io/docs/tech/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Gitleak</title><link>https://devseunggwan.github.io/docs/tech/git/gitleaks/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://devseunggwan.github.io/docs/tech/git/gitleaks/</guid><description>&lt;h1 id="gitleaks">
+ Gitleaks
+ &lt;a class="anchor" href="#gitleaks">#&lt;/a>
 &lt;/h1>
-&lt;p>AWS 키가 Github를 통해 노출이 되서 해킹으로 천만원 넘게 과금이 되고, 이를 AWS에서 도와주는 경우를 종종 들었습니다. &lt;em>&lt;strong>AWS 키 노출&lt;/strong>&lt;/em> 키워드로 구글에 검색하면 이에 대한 썰(?)을 어렵지 않게 찾아볼 수 있습니다. 키 노출 이슈가 개인이나 기업에서 중대하게 작용하기 때문에 이에 대한 대비책들도 존재합니다.&lt;/p>
-&lt;p>이외에도 개발을 하면서 서버나 DB, API 등에 접근하기 위해 비밀 키 등을 사용합니다. 이러한 비밀들이 Git 리포지토리에 커밋이 되었는 지를 확인해주는 오픈소스 도구인 Gitleaks에 대해서 소개해드리려고 합니다.&lt;/p></description></item></channel></rss>
+&lt;p>Gitleaks는 Git 리포지토리의 비밀번호, API 키, 토큰과 같은 하드코딩 된 비밀을 감지하고 유출을 방지하는 SAST(Static Application Security Testing, 정적 어플리케이션 보안 테스트) 도구입니다.&lt;/p>
+&lt;p>Go로 작성되었으며, Homebrew, Docker, Git Repo, Pre-commit, Github-Action 등으로 설치하여 사용할 수 있습니다.&lt;/p>
+&lt;p>아래는 Homebrew를 통해서 맥 로컬에 설치하는 방법입니다.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>brew install gitleaks
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Gitleaks를 통해서 찾을 수 있는 비밀은 여러가지가 있고, 
+ &lt;a href="https://github.com/gitleaks/gitleaks/blob/master/cmd/generate/config/main.go">Github Repo&lt;/a>에서 각 규칙(총 137가지)들을 확인할 수 있습니다.&lt;/p>
+&lt;p>Gitleaks를 만약 로컬에 설치했다면, 실행하는 방법은 다음과 같습니다.&lt;/p></description></item></channel></rss>

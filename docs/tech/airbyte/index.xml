@@ -67,8 +67,7 @@
  Airbyte를 사용하여 MySQL to Snowflake 연결 시 고려 사항
  &lt;a class="anchor" href="#airbyte%eb%a5%bc-%ec%82%ac%ec%9a%a9%ed%95%98%ec%97%ac-mysql-to-snowflake-%ec%97%b0%ea%b2%b0-%ec%8b%9c-%ea%b3%a0%eb%a0%a4-%ec%82%ac%ed%95%ad">#&lt;/a>
 &lt;/h1>
-&lt;p>
- &lt;img src="image.png" alt="image" />&lt;/p>
+&lt;figure>&lt;img src="images/mysql-to-snowflake.png" alt="이미지">&lt;figcaption>&lt;/figcaption>&lt;/figure>
 &lt;h2 id="개요">
  개요
  &lt;a class="anchor" href="#%ea%b0%9c%ec%9a%94">#&lt;/a>

@@ -2,13 +2,9 @@
  AWS Lambda 사용 경험 정리
  &lt;a class="anchor" href="#aws-lambda-%ec%82%ac%ec%9a%a9-%ea%b2%bd%ed%97%98-%ec%a0%95%eb%a6%ac">#&lt;/a>
 &lt;/h1>
-&lt;h2 id="개요">
- 개요
- &lt;a class="anchor" href="#%ea%b0%9c%ec%9a%94">#&lt;/a>
-&lt;/h2>
 &lt;ul>
 &lt;li>AWS Lambda 를 활용해 스크래핑 및 API를 통해 다양한 데이터를 수집하는 프로젝트를 진행하며 여러 운영 관점에서 중요한 고려 사항들을 직접 체험할 수 있었습니다.&lt;/li>
-&lt;li>Lambda를 사용하면서 마주한 비용 효율성, 리소스 관리, 모니터링, 디버깅 및 AWS의 기타 서비스와의 연계 시 고려해야 할 사항들을 정리해 봤습니다.&lt;/li>
+&lt;li>Lambda를 사용하면서 마주한 비용 효율성, 리소스 관리, 모니터링, 디버깅 및 AWS의 기타 서비스와의 연계 시 고려해야 할 사항들을 정리 하였습니다.&lt;/li>
 &lt;/ul>
 &lt;hr>
 &lt;h2 id="lambda-운영-관점에서의-고려-사항">

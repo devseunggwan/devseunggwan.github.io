@@ -2,11 +2,8 @@
  JS7 JobScheduler Controller and Agent 개요
  &lt;a class="anchor" href="#js7-jobscheduler-controller-and-agent-%ea%b0%9c%ec%9a%94">#&lt;/a>
 &lt;/h1>
-&lt;figure>&lt;img src="../../../.gitbook/assets/image (1) (1) (1).png" alt="">&lt;figcaption>&lt;p>JS7 JOC Cockpit Dashboard UI&lt;/p>&lt;/figcaption>&lt;/figure>
-&lt;h3 id="개요">
- 개요
- &lt;a class="anchor" href="#%ea%b0%9c%ec%9a%94">#&lt;/a>
-&lt;/h3>
+&lt;figure>&lt;img src="https://kb.sos-berlin.com/download/attachments/80971233/dashboard.png?version=1&amp;modificationDate=1681638984000&amp;api=v2" alt="이미지">&lt;figcaption>&lt;/figcaption>&lt;/figure>
+&lt;p>독일 베를린의 소프트웨어 기업 SOS GmbH(Software- und Organisations-Service)가 개발한 제품으로, 엔터프라이즈급 스케줄러의 오픈소스화를 목표로 만들어졌습니다.&lt;/p>
 &lt;ul>
 &lt;li>홈페이지(회사): 
  &lt;a href="https://www.sos-berlin.com/en">https://www.sos-berlin.com/en&lt;/a>&lt;/li>
@@ -17,13 +14,12 @@
 &lt;li>포럼: 
  &lt;a href="https://sourceforge.net/p/jobscheduler/discussion/">https://sourceforge.net/p/jobscheduler/discussion/&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;h3 id="라이센스-정책">
- 
- &lt;a href="https://kb.sos-berlin.com/display/JS7/JS7&amp;#43;-&amp;#43;License">라이센스 정책&lt;/a>
+&lt;h2 id="라이센스-정책">
+ 라이센스 정책
  &lt;a class="anchor" href="#%eb%9d%bc%ec%9d%b4%ec%84%bc%ec%8a%a4-%ec%a0%95%ec%b1%85">#&lt;/a>
-&lt;/h3>
+&lt;/h2>
 &lt;ul>
-&lt;li>JS7 JobScheduler와 YADE 제품은 고객에게 오픈 소스 라이선스와 상업용 라이선스 중에서 선택할 수 있는 듀얼 라이선스 모델로 제공
+&lt;li>JS7 JobScheduler와 YADE 제품은 고객에게 오픈 소스 라이선스와 상업용 라이선스 중에서 선택할 수 있는 듀얼 라이선스 모델로 제공합니다.
 &lt;ul>
 &lt;li>오픈 소스 라이선스 
  &lt;a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPLv3(일반 공중 라이선스)에 따라 제공&lt;/a>&lt;/li>
@@ -32,24 +28,28 @@
 &lt;/li>
 &lt;li>&lt;strong>유일한 예외는 기업 고객을 위한 상업적으로 이용 가능한 기능인 고가용성을 위해 JS7 제품을 클러스터링하는 운영 기능&lt;/strong>
 &lt;ul>
-&lt;li>초기 해당 제품을 사용하여 피봇팅을 하는 경우 단일 컨트롤러에 독립형 에이전트를 여러개 사용할 수 있으나, 규모가 확장되고 SPOF를 피하는 목적으로 에이전트 클러스터링을 고려할 수 있음&lt;/li>
+&lt;li>초기 해당 제품을 사용하여 피봇팅을 하는 경우 단일 컨트롤러에 독립형 에이전트를 여러개 사용할 수 있으나, 규모가 확장되고 SPOF를 피하는 목적으로 에이전트 클러스터링을 고려할 수 있습니다.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h3 id="아키텍처-구성요소">
+&lt;h2 id="아키텍처-구성요소">
  아키텍처 구성요소
  &lt;a class="anchor" href="#%ec%95%84%ed%82%a4%ed%85%8d%ec%b2%98-%ea%b5%ac%ec%84%b1%ec%9a%94%ec%86%8c">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="controller">
+ Controller
+ &lt;a class="anchor" href="#controller">#&lt;/a>
 &lt;/h3>
-&lt;ul>
-&lt;li>&lt;code>Controller&lt;/code>
 &lt;ul>
 &lt;li>컨트롤러는 실행할 워크플로와 작업, 실행 시기, 실행에 사용할 에이전트를 알고 있습니다.&lt;/li>
 &lt;li>컨트롤러는 JOC Cockpit에서 작업 관련 인벤토리를 수신하고 이 정보를 각 서버에서 워크플로우와 작업을 실행하는 에이전트에 배포합니다.&lt;/li>
 &lt;li>독립형 컨트롤러는 에이전트를 오케스트레이션하는 단일 인스턴스입니다.&lt;/li>
 &lt;li>할당하는 에이전트의 개수는 무제한입니다.&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>Agent&lt;/code>
+&lt;h3 id="agent">
+ Agent
+ &lt;a class="anchor" href="#agent">#&lt;/a>
+&lt;/h3>
 &lt;ul>
 &lt;li>에이전트은 에이전트 서버에서 실행 파일 및 명령을 호출하는 작업을 실행합니다.&lt;/li>
 &lt;li>에이전트는 컨트롤러로부터 시작할 잡과 시작 시점에 대한 정보를 받습니다.&lt;/li>
@@ -57,13 +57,13 @@
 &lt;li>에이전트는 작업 실행 시점에 컨트롤러가 연결되지 않아도 자율적으로 작동할 수 있습니다.&lt;/li>
 &lt;li>독립형 에이전트는 서로 독립적으로 작동합니다.&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>JOC Cockpit&lt;/code>
+&lt;h3 id="joc-cockpit">
+ JOC Cockpit
+ &lt;a class="anchor" href="#joc-cockpit">#&lt;/a>
+&lt;/h3>
 &lt;ul>
 &lt;li>JOC Cockpit은 작업 관련 인벤토리를 관리하고 컨트롤러 및 에이전트의 워크플로 실행을 모니터링 및 제어하기 위한 사용자 인터페이스입니다.&lt;/li>
 &lt;li>독립형 JOC Cockpit은 하나 이상의 컨트롤러를 관리하는 데 사용할 수 있는 단일 인스턴스입니다.&lt;/li>
-&lt;/ul>
-&lt;/li>
 &lt;/ul></description></item><item><title>Installation</title><link>https://devseunggwan.github.io/docs/tech/js7-jobscheduler/installation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://devseunggwan.github.io/docs/tech/js7-jobscheduler/installation/</guid><description>&lt;h1 id="js7-jobscheduler-controller-and-agent-설치-w-docker-compse">
  JS7 JobScheduler Controller and Agent 설치 (w/ docker-compse)
  &lt;a class="anchor" href="#js7-jobscheduler-controller-and-agent-%ec%84%a4%ec%b9%98-w-docker-compse">#&lt;/a>
@@ -72,10 +72,11 @@
  1. 공식 문서 참조 기준
  &lt;a class="anchor" href="#1-%ea%b3%b5%ec%8b%9d-%eb%ac%b8%ec%84%9c-%ec%b0%b8%ec%a1%b0-%ea%b8%b0%ec%a4%80">#&lt;/a>
 &lt;/h2>
-&lt;blockquote>
+&lt;blockquote class="book-hint info">
 &lt;p>현재 Alpine 기본 이미지와 OpenJDK와 함께 제공되는 Linux 기반 
- &lt;a href="https://opencontainers.org/">OCI&lt;/a> 호환 컨테이너 이미지 에서 제공&lt;br>
-2025.01.03 기준 2.5.0 버전으로 공식 문서에 적혀있어서 참조하였습니다.&lt;/p>&lt;/blockquote>
+ &lt;a href="https://opencontainers.org/">OCI&lt;/a> 호환 컨테이너 이미지 에서 제공 &lt;br>
+2025.01.03 기준 2.5.0 버전으로 공식 문서에 적혀있어서 참조하였습니다.&lt;/p>
+&lt;/blockquote>
 &lt;h3 id="1-1-dotenv-설정">
  1-1. dotenv 설정
  &lt;a class="anchor" href="#1-1-dotenv-%ec%84%a4%ec%a0%95">#&lt;/a>
@@ -87,8 +88,7 @@
 JS7GROUPID=0
 JS7VERSION=2-5-0
 &lt;/code>&lt;/pre>&lt;h3 id="1-2-agent">
- 1-2. 
- &lt;a href="https://kb.sos-berlin.com/display/JS7/JS7&amp;#43;-&amp;#43;Agent&amp;#43;Installation&amp;#43;using&amp;#43;Docker&amp;#43;Compose?src=contextnavpagetreemode">Agent&lt;/a>
+ 1-2. Agent
  &lt;a class="anchor" href="#1-2-agent">#&lt;/a>
 &lt;/h3>
 &lt;ol>
@@ -101,65 +101,53 @@ JS7VERSION=2-5-0
 &lt;li>docker-compose를 실행합니다.
 &lt;ol>
 &lt;li>dotenv를 적용해야 합니다.&lt;/li>
-&lt;li>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker compose --env-file ./.env -f docker-compose.yml up -d
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ol>
 &lt;/li>
 &lt;/ol>
-&lt;details>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker compose --env-file ./.env -f docker-compose.yml up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;details>
 &lt;summary>&lt;a href="https://kb.sos-berlin.com/download/attachments/80970104/docker-compose.yml?version=2&amp;#x26;modificationDate=1654531801000&amp;#x26;api=v2">docker-compose.yml&lt;/a>&lt;/summary>
-&lt;pre class="language-yaml">&lt;code class="lang-yaml">&lt;strong>
-&lt;/strong>version: '3'
- 
-services:
- js7-agent-primary:
- image: sosberlin/js7:agent-${JS7VERSION}
- hostname: js7-agent-primary
- volumes:
- - js7-agent-primary:/var/sos-berlin.com/js7/agent/var_4445
- networks:
- - js7
- environment:
- RUN_JS_JAVA_OPTIONS: -Xmx256m
- RUN_JS_USER_ID: "${JS7USERID}:${JS7GROUPID}"
- restart: "no"
- 
-networks:
- js7:
- external: true
- 
-volumes:
- js7-agent-primary:
- driver: local
- driver_opts:
- type: none
- device: ${PWD}/js7-agent-primary
- o: bind
-&lt;/code>&lt;/pre>
-&lt;/details>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">version&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;3&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">services&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">js7-agent-primary&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">image&lt;/span>: &lt;span style="color:#ae81ff">sosberlin/js7:agent-${JS7VERSION}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">hostname&lt;/span>: &lt;span style="color:#ae81ff">js7-agent-primary&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">volumes&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">js7-agent-primary:/var/sos-berlin.com/js7/agent/var_4445&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">networks&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#ae81ff">js7&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">environment&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">RUN_JS_JAVA_OPTIONS&lt;/span>: -&lt;span style="color:#ae81ff">Xmx256m&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">RUN_JS_USER_ID&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;${JS7USERID}:${JS7GROUPID}&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">restart&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;no&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">networks&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">js7&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">external&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">volumes&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">js7-agent-primary&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">driver&lt;/span>: &lt;span style="color:#ae81ff">local&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">driver_opts&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">type&lt;/span>: &lt;span style="color:#ae81ff">none&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">device&lt;/span>: &lt;span style="color:#ae81ff">${PWD}/js7-agent-primary&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">o&lt;/span>: &lt;span style="color:#ae81ff">bind&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details>
 &lt;h3 id="1-3-controller">
- 1-3. 
- &lt;a href="https://kb.sos-berlin.com/display/JS7/JS7&amp;#43;-&amp;#43;Controller&amp;#43;Installation&amp;#43;using&amp;#43;Docker&amp;#43;Compose?src=contextnavpagetreemode">Controller&lt;/a>
+ 1-3. Controller
  &lt;a class="anchor" href="#1-3-controller">#&lt;/a>
 &lt;/h3>
 &lt;ol>
 &lt;li>docker-compose.yml 을 다운로드 받습니다.&lt;/li>
-&lt;li>controller의 Volume이 마운트 되는 폴더를 생성합니다.
-&lt;ol>
-&lt;li>&lt;code>mkdir js7-controller-primary&lt;/code>&lt;/li>
+&lt;li>controller의 Volume이 마운트 되는 폴더를 생성합니다.&lt;/li>
 &lt;/ol>
-&lt;/li>
-&lt;li>docker-compose를 실행합니다.
-&lt;ol>
-&lt;li>dotenv를 적용해야 합니다.&lt;/li>
-&lt;li>
+&lt;pre tabindex="0">&lt;code>mkdir js7-controller-primary
+&lt;/code>&lt;/pre>&lt;ol start="3">
+&lt;li>docker-compose를 실행합니다.&lt;/li>
+&lt;/ol>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker compose --env-file ./.env -f docker-compose.yml up -d 
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;/ol>
-&lt;details>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;details>
 &lt;summary>&lt;a href="https://kb.sos-berlin.com/download/attachments/80970088/docker-compose.yml?version=1&amp;#x26;modificationDate=1654530751000&amp;#x26;api=v2">docker-compose.yml&lt;/a>&lt;/summary>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">version&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;3&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
@@ -190,8 +178,7 @@ volumes:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">o&lt;/span>: &lt;span style="color:#ae81ff">bind&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details>
 &lt;h3 id="1-4-joc-cockpit">
- 1-4. 
- &lt;a href="https://kb.sos-berlin.com/display/JS7/JS7&amp;#43;-&amp;#43;JOC&amp;#43;Cockpit&amp;#43;Installation&amp;#43;using&amp;#43;Docker&amp;#43;Compose?src=contextnavpagetreemode">JOC Cockpit &lt;/a>
+ 1-4. JOC Cockpit
  &lt;a class="anchor" href="#1-4-joc-cockpit">#&lt;/a>
 &lt;/h3>
 &lt;blockquote>
@@ -207,7 +194,7 @@ volumes:
 &lt;ol>
 &lt;li>
  &lt;a href="http://localhost:4446/joc/#/login">http://localhost:4446/joc/#/login&lt;/a> 로 접속합니다.&lt;/li>
-&lt;li>ID, PW 
+&lt;li>ID, PW
 &lt;ol>
 &lt;li>ID: root&lt;/li>
 &lt;li>PW: root&lt;/li>
@@ -225,11 +212,14 @@ volumes:
 &lt;/ol>
 &lt;/li>
 &lt;/ol>
-&lt;figure>&lt;img src="../../../.gitbook/assets/image (2) (1).png" alt="" width="451">&lt;figcaption>&lt;/figcaption>&lt;/figure>
+&lt;p>
+ &lt;img src="images/configuration-1.png" alt="config-1" />&lt;/p>
 &lt;ol start="5">
 &lt;li>접속되며 메인 화면이 나옵니다.&lt;/li>
 &lt;/ol>
-&lt;figure>&lt;img src="../../../.gitbook/assets/image (4).png" alt="">&lt;figcaption>&lt;/figcaption>&lt;/figure>
+&lt;p>
+ &lt;img src="images/configuration-2.png" alt="config-2" />&lt;/p>
+&lt;hr>
 &lt;h2 id="agent-설정">
  Agent 설정
  &lt;a class="anchor" href="#agent-%ec%84%a4%ec%a0%95">#&lt;/a>
@@ -237,55 +227,5 @@ volumes:
 &lt;ol>
 &lt;li>1시 방향에 있는 설정 아이콘 &amp;gt; &lt;code>Manage Controllers/Agents&lt;/code> 를 클릭합니다.&lt;/li>
 &lt;/ol>
-&lt;figure>&lt;img src="../../../.gitbook/assets/image (5).png" alt="">&lt;figcaption>&lt;/figcaption>&lt;/figure>
-&lt;ol start="2">
-&lt;li>Controller 옆에 있는 &lt;code>…&lt;/code> 을 클릭 후 &lt;code>Add Standalone Agent&lt;/code> 를 클릭합니다.&lt;/li>
-&lt;/ol>
-&lt;figure>&lt;img src="../../../.gitbook/assets/image (6).png" alt="">&lt;figcaption>&lt;/figcaption>&lt;/figure>
-&lt;ol start="3">
-&lt;li>팝업 창이 표시되며 각 항목들을 입력합니다.&lt;/li>
-&lt;/ol>
-&lt;figure>&lt;img src="../../../.gitbook/assets/image (7).png" alt="">&lt;figcaption>&lt;/figcaption>&lt;/figure>
-&lt;ul>
-&lt;li>&lt;code>Agent ID&lt;/code>
-&lt;ul>
-&lt;li>에이전트의 고유 식별자입니다. 고유성은 동일한 컨트롤러에 등록된 모든 에이전트에 적용됩니다. 이 식별자는 나중에 변경할 수 없습니다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>Agent Name&lt;/code>
-&lt;ul>
-&lt;li>에이전트의 이름은 예를 들어 에이전트를 작업에 할당할 때 사용됩니다. &lt;em>에이전트 ID&lt;/em> 와 마찬가지로 에이전트 &lt;em>이름은&lt;/em> 고유해야 하지만 나중에 변경할 수 있습니다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>Title&lt;/code>
-&lt;ul>
-&lt;li>검색이 가능한 개별 설명입니다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>Alias Names&lt;/code>
-&lt;ul>
-&lt;li>동일한 에이전트를 다른 이름으로 사용할 수 있습니다. 이는 서로 다른 &lt;em>에이전트 이름을&lt;/em> 작업에 할당해야 하는 경우 유용할 수 있습니다. 예를 들어, 프로덕션 환경에서 더 많은 에이전트를 사용하여 비프로덕션 환경에서 더 적은 수의 에이전트에 매핑하는 경우입니다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>Process Limit&lt;/code>
-&lt;ul>
-&lt;li>에이전트는 무제한의 병렬 프로세스를 실행할 수 있습니다. 사용자는 병렬 프로세스를 제한하여 서버 리소스가 고갈되는 것을 방지하고 다음 프로세스가 사용 가능할 때까지 주문을 기다리게 할 수 있습니다.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>URL&lt;/code>
-&lt;ul>
-&lt;li>에이전트가 컨트롤러에 접근할 수 있는 프로토콜(HTTP 또는 HTTPS), 호스트 이름 또는 IP 주소 및 포트입니다.&lt;/li>
-&lt;li>&lt;code>http://{agent-docker-name}:4445&lt;/code> 형식으로 작성합니다.
-&lt;ul>
-&lt;li>ex) http://js7-agent-primary-1:4445&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h2 id="reference">
- Reference
- &lt;a class="anchor" href="#reference">#&lt;/a>
-&lt;/h2>
-&lt;p>{% embed url=&amp;ldquo;
- &lt;a href="https://qiita.com/saitamanokusa/items/ffb8f05cbc8e75d435ce%22">https://qiita.com/saitamanokusa/items/ffb8f05cbc8e75d435ce"&lt;/a> %}&lt;/p></description></item></channel></rss>
+&lt;p>
+ &lt;img src="images/configuration-3.png" alt="config-3" />&lt;/p></description></item></channel></rss>
